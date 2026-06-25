@@ -1,0 +1,29 @@
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "Test Student",
+    "email": "test@gmail.com",
+    "password": "password123",
+    "classLevel": "SS2",
+    "subjects": ["Mathematics", "English", "Physics"]
+}
+
+### Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "test@gmail.com",
+    "password": "password123"
+}
+
+### Onboard
+PUT http://localhost:3000/api/auth/onboard
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2QwZDRmODg0ZGJiMjlkZTI2ODA4OCIsImlhdCI6MTc4MjM5NTI2MywiZXhwIjoxNzg0OTg3MjYzfQ.ZSZisOZ6z6t1MHfoQnwvyixH9l_Nj4_f3PQ6Hv-5pnQ
+
+{
+    "classLevel": "SS3",
+    "subjects": ["Mathematics", "Biology", "Chemistry"]
+}
