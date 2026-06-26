@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+:root {
+  --color-primary: #1B2B8A;
+  --color-accent: #F5A623;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-accent: var(--color-accent);
+}
