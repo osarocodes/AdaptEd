@@ -4,7 +4,7 @@ import AuthLayout from "../components/shared/AuthLayout";
 import Button from "../components/shared/Button";
 import Input from "../components/shared/Input";
 
-const CLASS_LEVELS = ["JS1", "JS2", "JS3", "SS1", "SS2", "SS3"];
+const CLASS_LEVELS = ["JSS1", "JSS2", "JSS3", "SSS1", "SSS2", "SSS3"];
 
 export default function Register() {
   const [form, setForm] = useState({ fullName: "", email: "", classLevel: "" });
@@ -19,8 +19,8 @@ export default function Register() {
 
   return (
     <AuthLayout>
-      <h2 className="text-2xl font-bold text-gray-900 mb-1">Create your account</h2>
-      <p className="text-sm text-gray-500 mb-8">Takes 30 seconds. No exam board vibes.</p>
+      <h2 className="text-2xl xl:text-3xl font-bold text-gray-900 mb-1">Create your account</h2>
+      <p className="text-sm md:text-base xl:text-lg text-gray-500 mb-8">Takes 30 seconds. No exam board vibes.</p>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <Input
@@ -43,14 +43,14 @@ export default function Register() {
         />
 
         <div className="flex flex-col gap-2">
-          <span className="text-sm font-medium text-gray-700">Class level</span>
+          <span className="text-sm md:text-base font-medium text-gray-700">Class level</span>
           <div className="flex flex-wrap gap-2">
             {CLASS_LEVELS.map((level) => (
               <button
                 key={level}
                 type="button"
                 onClick={() => setForm((prev) => ({ ...prev, classLevel: level }))}
-                className="px-4 py-2 rounded-lg text-sm font-medium border transition-colors cursor-pointer"
+                className="px-4 py-2 rounded-lg text-sm md:text-base xl:text-lg font-medium border transition-colors cursor-pointer"
                 style={
                   form.classLevel === level
                     ? { backgroundColor: "var(--color-primary)", color: "#fff", borderColor: "var(--color-primary)" }
@@ -68,9 +68,9 @@ export default function Register() {
         </Button>
       </form>
 
-      <p className="text-center text-sm text-gray-500 mt-5">
+      <p className="text-center text-sm md:text-base text-gray-500 mt-5">
         Already have one?{" "}
-        <Link to="/login" className="font-semibold text-gray-900 hover:underline">
+        <Link to="/login" className="font-semibold text-gray-900 md:text-base hover:underline">
           Log in
         </Link>
       </p>

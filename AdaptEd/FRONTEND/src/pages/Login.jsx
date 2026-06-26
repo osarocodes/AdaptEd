@@ -17,8 +17,8 @@ export default function Login() {
 
   return (
     <AuthLayout>
-      <h2 className="text-2xl font-bold text-gray-900 mb-1">Welcome back</h2>
-      <p className="text-sm text-gray-500 mb-8">Let's keep that streak going.</p>
+      <h2 className="text-2xl xl:text-3xl font-bold text-gray-900 mb-1">Welcome back</h2>
+      <p className="text-sm md:text-base xl:text-lg text-gray-500 mb-8">Let's keep that streak going.</p>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <Input
@@ -45,20 +45,13 @@ export default function Login() {
         </Button>
       </form>
 
-      <p className="text-center text-sm text-gray-500 mt-5">
+      <p className="text-center text-sm md:text-base text-gray-500 mt-5">
         New here?{" "}
-        <Link to="/register" className="font-semibold text-gray-900 hover:underline">
+        <Link to="/register" className="font-semibold md:text-base text-gray-900 hover:underline">
           Create account
         </Link>
       </p>
 
-      <div className="flex items-center gap-3 my-4">
-        <hr className="flex-1 border-gray-200" />
-        <span className="text-xs text-gray-400">OR</span>
-        <hr className="flex-1 border-gray-200" />
-      </div>
-
-      <Button variant="outline">Continue as guest</Button>
     </AuthLayout>
   );
 }
