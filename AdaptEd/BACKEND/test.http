@@ -24,3 +24,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2Z
 ### Get Performance by Subject
 GET http://localhost:3000/api/performance/Mathematics
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2ZTY1OTY2Y2VlMzUwYWE5NiIsImlhdCI6MTc4MjU1MjkzNSwiZXhwIjoxNzg1MTQ0OTM1fQ.yFNzOfjPH0XbNunFMt9Z498sI6x0q99WaYNVZbeSGp0
+
+### Generate Learning Path
+POST http://localhost:3000/api/learning-path/Chemistry
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2ZTY1OTY2Y2VlMzUwYWE5NiIsImlhdCI6MTc4MjU1MjkzNSwiZXhwIjoxNzg1MTQ0OTM1fQ.yFNzOfjPH0XbNunFMt9Z498sI6x0q99WaYNVZbeSGp0
+
+### Get Saved Learning Path
+GET http://localhost:3000/api/learning-path/Mathematics
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2ZTY1OTY2Y2VlMzUwYWE5NiIsImlhdCI6MTc4MjU1MjkzNSwiZXhwIjoxNzg1MTQ0OTM1fQ.yFNzOfjPH0XbNunFMt9Z498sI6x0q99WaYNVZbeSGp0
