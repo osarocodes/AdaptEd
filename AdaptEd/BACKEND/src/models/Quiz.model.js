@@ -6,7 +6,7 @@ const questionSchema = new mongoose.Schema({
     correctAnswer: { type: String, required: true },
     topic: { type: String, required: true },
     difficulty: { type: String, required: true, enum: ['easy', 'medium', 'hard'], default: 'medium'},
-}),
+});
 
 const quizSchema = new mongoose.Schema({
     subject: { type: String, required: true },
@@ -14,4 +14,4 @@ const quizSchema = new mongoose.Schema({
     questions: [questionSchema],
 }, { timestamps: true })
 
-module.exports = mongoose.model('Quiz', quizSchema);
+export default mongoose.model('Quiz', quizSchema);
