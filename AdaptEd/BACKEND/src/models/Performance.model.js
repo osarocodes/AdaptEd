@@ -15,4 +15,4 @@ const performanceSchema = new mongoose.Schema({
     strongAreas: [{ type: String }]
 }, { timestamps: true })
 
-module.exports = mongoose.model('Performance', performanceSchema)
+export default mongoose.model('Performance', performanceSchema)

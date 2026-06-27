@@ -1,0 +1,18 @@
+### Get Quiz
+GET http://localhost:3000/api/quiz/Mathematics
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2ZTY1OTY2Y2VlMzUwYWE5NiIsImlhdCI6MTc4MjU1MjkzNSwiZXhwIjoxNzg1MTQ0OTM1fQ.yFNzOfjPH0XbNunFMt9Z498sI6x0q99WaYNVZbeSGp0
+
+### submit quiz
+POST http://localhost:3000/api/quiz/Mathematics/submit
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2ZTY1OTY2Y2VlMzUwYWE5NiIsImlhdCI6MTc4MjU1MjkzNSwiZXhwIjoxNzg1MTQ0OTM1fQ.yFNzOfjPH0XbNunFMt9Z498sI6x0q99WaYNVZbeSGp0
+
+{
+    "answers": [
+        { "questionId": "6a3f88169d711556d7477e10", "answer": "3" },
+        { "questionId": "6a3f88169d711556d7477e11", "answer": "x + 8" },
+        { "questionId": "6a3f88169d711556d7477e12", "answer": "154cm²" },
+        { "questionId": "6a3f88169d711556d7477e13", "answer": "180°" },
+        { "questionId": "6a3f88169d711556d7477e14", "answer": "x=2,x=3" }
+    ]
+}
