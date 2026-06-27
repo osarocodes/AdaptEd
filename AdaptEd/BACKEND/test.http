@@ -16,3 +16,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2Z
         { "questionId": "6a3f88169d711556d7477e14", "answer": "x=2,x=3" }
     ]
 }
+
+### Get All Performance
+GET http://localhost:3000/api/performance
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2ZTY1OTY2Y2VlMzUwYWE5NiIsImlhdCI6MTc4MjU1MjkzNSwiZXhwIjoxNzg1MTQ0OTM1fQ.yFNzOfjPH0XbNunFMt9Z498sI6x0q99WaYNVZbeSGp0
+
+### Get Performance by Subject
+GET http://localhost:3000/api/performance/Mathematics
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2ZTY1OTY2Y2VlMzUwYWE5NiIsImlhdCI6MTc4MjU1MjkzNSwiZXhwIjoxNzg1MTQ0OTM1fQ.yFNzOfjPH0XbNunFMt9Z498sI6x0q99WaYNVZbeSGp0
