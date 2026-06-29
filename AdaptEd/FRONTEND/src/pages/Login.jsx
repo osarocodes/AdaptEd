@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../components/shared/AuthLayout";
 import Button from "../components/shared/Button";
 import Input from "../components/shared/Input";
@@ -7,6 +7,7 @@ import axios from "axios";
 
 
 export default function Login() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
 
   const handleChange = (e) => setForm((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -20,13 +21,12 @@ export default function Login() {
         password: form.password
       })
       const info = res.data
-      const token = info.token
-      localStorage.setItem("token", token)
-      console.log("Login successful:", info);
+      localStorage.setItem("token", info.token);
+      if (info.user) localStorage.setItem("user", JSON.stringify(info.user));
+      navigate("/home");
     } catch (error) {
       console.error("Login error:", error);
     }
-    console.log("Login:", form);
   };
 
   
