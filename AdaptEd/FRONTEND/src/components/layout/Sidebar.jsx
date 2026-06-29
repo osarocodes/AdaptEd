@@ -64,7 +64,7 @@ export default function Sidebar() {
   const handleProfile = () => navigate("/profile");
 
   return (
-    <aside className="hidden md:flex flex-col md:w-64 lg:w-75 h-screen fixed left-0 top-0 bg-white border-r border-gray-100 z-30">
+    <aside className="hidden md:flex flex-col md:w-64 lg:w-70 h-screen fixed left-0 top-0 bg-white border-r border-gray-100 z-30">
       {/* Logo */}
       <div className="flex items-center gap-2 px-6 py-5">
         <span className="text-2xl font-bold" style={{ color: "var(--color-accent)" }}>◆</span>
