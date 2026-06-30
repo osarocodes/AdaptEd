@@ -58,12 +58,7 @@ function SubjectCard({ subject }) {
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-            style={{ backgroundColor: subject.color }}
-          >
-            {subject.initial}
-          </div>
+          <SubjectAvatar initial={subject.initial} color={subject.color} />
           <div>
             <p className="font-semibold text-gray-900 text-sm">{subject.name}</p>
             <p className="text-xs text-gray-400">{subject.topics} topics</p>
@@ -113,12 +108,7 @@ function AllSubjectRow({ subject }) {
       onClick={() => navigate("/learn")}
     >
       <div className="flex items-center gap-3">
-        <div
-          className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-          style={{ backgroundColor: subject.color }}
-        >
-          {subject.initial}
-        </div>
+        <SubjectAvatar initial={subject.initial} color={subject.color} size="sm" />
         <div>
           <p className="font-medium text-gray-900 text-sm">{subject.name}</p>
           <p className="text-xs text-gray-400">{subject.topics} topics</p>
