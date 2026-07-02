@@ -30,10 +30,13 @@ export const registerUser = async (req, res) => {
         });
 
         res.status(201).json({
-            _id: user._id,
-            name: user.name,
-            classLevel: user.classLevel,
-            subjects: user.subjects,
+            user: {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+                classLevel: user.classLevel,
+                subjects: user.subjects,
+            },
             token: generateToken(user._id),
         })
     } catch(error) {
@@ -55,11 +58,13 @@ export const loginUser = async (req, res) => {
     
         if (user && (await bcrypt.compare(password, user.password))) {
             res.json({
-                _id: user._id,
-                name: user.name,
-                email: user.email,
-                classLevel: user.classLevel,
-                subjects: user.subjects,
+                user: {
+                    _id: user._id,
+                    name: user.name,
+                    email: user.email,
+                    classLevel: user.classLevel,
+                    subjects: user.subjects,
+                },
                 token: generateToken(user._id)
             });
         } else {
@@ -83,5 +88,26 @@ export const onboardUser = async (req, res) => {
         res.json(user);
     } catch (error) {
         res.status(500).json({ message: error.message })
+    }
+}
+
+export const checkAuth = async (req, res) => {
+    try {
+        if (!req.user) {
+            return res.status(401).json({ message: "Not authenticated" });
+        }
+
+        res.status(200).json({
+            user: {
+                _id: req.user._id,
+                name: req.user.name,
+                email: req.user.email,
+                classLevel: req.user.classLevel,
+                subjects: req.user.subjects,
+            }
+        });
+    } catch (error) {
+        console.error("Error during auth check:", error.message);
+        res.status(500).json({ message: "Server error during authentication check.", error: error.message })
     }
 }

@@ -32,3 +32,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2Z
 ### Get Saved Learning Path
 GET http://localhost:3000/api/learning-path/Mathematics
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2ZTY1OTY2Y2VlMzUwYWE5NiIsImlhdCI6MTc4MjU1MjkzNSwiZXhwIjoxNzg1MTQ0OTM1fQ.yFNzOfjPH0XbNunFMt9Z498sI6x0q99WaYNVZbeSGp0
+
+### Check authenticated user
+GET http://localhost:3000/api/auth/check HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhM2Y5OTY2ZTY1OTY2Y2VlMzUwYWE5NiIsImlhdCI6MTc4MjU1MjkzNSwiZXhwIjoxNzg1MTQ0OTM1fQ.yFNzOfjPH0XbNunFMt9Z498sI6x0q99WaYNVZbeSGp0

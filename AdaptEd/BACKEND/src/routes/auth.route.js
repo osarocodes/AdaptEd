@@ -1,5 +1,5 @@
 import express from "express";
-import { registerUser, loginUser, logoutUser, onboardUser } from "../controllers/auth.controllers.js";
+import { registerUser, loginUser, logoutUser, onboardUser, checkAuth } from "../controllers/auth.controllers.js";
 import { protect } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
@@ -9,5 +9,6 @@ router.post("/login", loginUser);
 router.put("/onboard", protect, onboardUser)
 
 router.get("/logout", logoutUser);
+router.get("/check", protect, checkAuth);
 // router.get("/", home);
-export default router;
+export default router;  
