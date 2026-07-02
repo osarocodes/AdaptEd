@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../components/shared/AuthLayout";
 import Button from "../components/shared/Button";
 import Input from "../components/shared/Input";
-import axios from "axios";
+import { useAuthStore } from "../stores/useAuthStore";
 
 const CLASS_LEVELS = ["JSS1", "JSS2", "JSS3", "SSS1", "SSS2", "SSS3"];
 
@@ -50,6 +50,7 @@ export default function Register() {
     classLevel: "",
     subjects: [],
   });
+  const { register } = useAuthStore();
 
   const handleChange = (e) =>
     setForm((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -71,16 +72,8 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/api/auth/register", {
-        name: form.fullName,
-        email: form.email,
-        password: form.password,
-        classLevel: form.classLevel,
-        subjects: form.subjects,
-      });
-      if (res.data?.token) {
-        localStorage.setItem("token", res.data.token);
-        if (res.data.user) localStorage.setItem("user", JSON.stringify(res.data.user));
+      const success = await register(form);
+      if (success) {
         navigate("/home");
       } else {
         navigate("/login");

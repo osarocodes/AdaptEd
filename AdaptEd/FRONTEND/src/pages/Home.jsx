@@ -1,56 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AppLayout from "../components/layout/AppLayout";
 import XpBadge from "../components/shared/XpBadge";
 import SubjectAvatar from "../components/shared/SubjectAvatar";
+import { useAuthStore } from "../stores/useAuthStore";
+import { ALL_SUBJECTS, SUBJECTS } from "../utils/mockData";
+import { Loader } from 'lucide-react';
 
-const SUBJECTS = [
-  {
-    id: 1,
-    name: "Mathematics",
-    initial: "M",
-    color: "#6366F1",
-    score: 38,
-    change: null,
-    status: "weak",
-    note: "Quadratics & Trig need work",
-    topics: 5,
-  },
-  {
-    id: 2,
-    name: "Physics",
-    initial: "P",
-    color: "#EF4444",
-    score: 47,
-    change: -2,
-    status: "weak",
-    note: "Forces dipped a little",
-    topics: 4,
-  },
-  {
-    id: 3,
-    name: "English Language",
-    initial: "E",
-    color: "#F59E0B",
-    score: 84,
-    change: 7,
-    status: "strong",
-    note: "Comprehension on point",
-    topics: 4,
-  },
-];
-
-const ALL_SUBJECTS = [
-  { id: 1, name: "Mathematics", initial: "M", color: "#6366F1", topics: 5 },
-  { id: 2, name: "Physics", initial: "P", color: "#EF4444", topics: 4 },
-  { id: 3, name: "English Language", initial: "E", color: "#F59E0B", topics: 4 },
-  { id: 4, name: "Chemistry", initial: "C", color: "#10B981", topics: 6 },
-  { id: 5, name: "Biology", initial: "B", color: "#3B82F6", topics: 5 },
-  { id: 6, name: "Government", initial: "G", color: "#8B5CF6", topics: 3 },
-];
 
 function SubjectCard({ subject }) {
   const navigate = useNavigate();
+  const { authUser, checkAuth } = useAuthStore();
+
+  useEffect(() => {
+    checkAuth();
+  }, [])
+  
+  if (!authUser) {
+    <Loader className="border border-amber-300" />
+  }
+
   return (
     <div
       className="bg-white rounded-2xl p-4 border border-gray-100 cursor-pointer hover:shadow-md transition-shadow"
@@ -60,7 +29,7 @@ function SubjectCard({ subject }) {
         <div className="flex items-center gap-3">
           <SubjectAvatar initial={subject.initial} color={subject.color} />
           <div>
-            <p className="font-semibold text-gray-900 text-sm">{subject.name}</p>
+            {authUser && (<p className="font-semibold text-gray-900 text-sm">{authUser.fullName}</p>)}
             <p className="text-xs text-gray-400">{subject.topics} topics</p>
           </div>
         </div>
